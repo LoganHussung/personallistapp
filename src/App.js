@@ -66,7 +66,9 @@ class App extends Component {
         </form>
         <ul className="allTasks">
           <p> Welcome to ToDo. To add a task enter it in the field above. After you have completed your task, simply click on the trash to remove from your list. </p>
-          <div className="number"> {this.state.toDos.length} </div>
+          <div className="number">
+            {'Total Number of Task: '+ this.state.toDos.length}
+          </div>
           {this.state.toDos.map((todo, index)=> {
             return(
               <li className="item_text" key={index} >

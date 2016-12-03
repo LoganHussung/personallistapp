@@ -90,6 +90,12 @@ input {
 ::-webkit-input-placeholder {
   color: #7F8E52;
 }
+
+.number {
+  color: white;
+  font-family: Papyrus;
+  font-size: 1.5rem;
+}
 ul {
   color: black;
   display: flex;
@@ -127,6 +133,11 @@ li {
 
 /* On mouse-over, add a deeper shadow */
 li:hover {
+  box-shadow: 6px 12px 4px 0 rgba(0,0,0, .4);
+  opacity: 1;
+  transition: .3s;
+}
+li:active {
   box-shadow: 6px 12px 4px 0 rgba(0,0,0, .4);
   opacity: 1;
   transition: .3s;
