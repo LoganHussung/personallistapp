@@ -6,11 +6,17 @@ import './App.css';
 let toDos = JSON.parse(localStorage.getItem('toDos'));
 if (!toDos || toDos.length === 0) {
   toDos = [
-    'Go to Class',
-    'Learn Stuff',
-    'Get a Job'
+    {text: 'Go to Class',
+    completed: false
+  },
+    {text: 'Learn some stuff',
+    completed: false
+
+  },
+    {text: 'Get a freaking job',
+    completed: false
+  }
   ];
-  localStorage.setItem('toDos', JSON.stringify(toDos));
 }
 
 ReactDOM.render(

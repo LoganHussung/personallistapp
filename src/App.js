@@ -13,7 +13,10 @@ class App extends Component {
   whenSubmit (e){
     e.preventDefault();
     console.log(this.state.newItemValue);
-    var newToDo = this.state.toDos.concat([this.state.newItemValue])
+    var newToDo = this.state.toDos.concat([{
+      text: this.state.newItemValue,
+      completed: false
+    }]);
     this.setState({
       toDos: newToDo,
       newItemValue: ''
@@ -23,7 +26,6 @@ class App extends Component {
 
 
   whenClicked (index, e){
-    console.log('people', index);
     var head = this.state.toDos.slice(0,index)
     var tail = this.state.toDos.slice(index +1, this.state.toDos.length)
     var newToDo = head.concat(tail)
@@ -32,25 +34,45 @@ class App extends Component {
     });
     localStorage.setItem('toDos', JSON.stringify(newToDo));
   }
+
+  whenCheckedClicked(index, e){
+    let newItems = this.state.toDos.slice(0);
+    newItems[index].completed = !newItems[index].completed;
+    this.setState({
+      toDos: newItems
+    })
+    localStorage.setItem('toDos', JSON.stringify(newItems));
+  }
+
   whenChanged (e){
     this.setState({
       newItemValue: e.target.value
     })
   }
+
   render() {
-    console.log(this.props.toDos);
     return (
       <div className="App">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h3>ToDo</h3>
+        <div className="header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <div className="header_text">
+            <h3>ToDo</h3>
+            <h5>Time to get to work</h5>
+          </div>
+        </div>
         <form onSubmit={this.whenSubmit.bind(this)}>
-          <input type="text" onChange={this.whenChanged.bind(this)} value={this.state.newItemValue} placeholder="New Tasks Here"  />
+          <input type="text" onChange={this.whenChanged.bind(this)} value={this.state.newItemValue} placeholder="New Task Here"  />
           <button>Add New Task </button>
         </form>
         <ul className="allTasks">
+          <p> Welcome to ToDo. To add a task enter it in the field above. After you have completed your task, simply click on the trash to remove from your list. </p>
+          <div className="number"> {this.state.toDos.length} </div>
           {this.state.toDos.map((todo, index)=> {
             return(
-              <li onClick={this.whenClicked.bind(this, index)} key={index}>{todo}</li>
+              <li className="item_text" key={index} >
+                <span onClick={this.whenCheckedClicked.bind(this, index)}style={{textDecoration: todo.completed ? 'line-through' : 'none'}} >{todo.text}</span>
+                <i className="ion-ios-trash-outline" onClick={this.whenClicked.bind(this, index)} />
+              </li>
             )
           }
         )
