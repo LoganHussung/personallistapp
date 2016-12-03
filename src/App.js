@@ -65,7 +65,7 @@ class App extends Component {
           <button>Add New Task </button>
         </form>
         <ul className="allTasks">
-          <p> Welcome to ToDo. To add a task enter it in the field above. After you have completed your task, simply click on the trash to remove from your list. </p>
+          <p> To add a task enter it in the field above. After you have completed your task, simply click on the trash to remove from your list. </p>
           <div className="number">
             {'Total Number of Task: '+ this.state.toDos.length}
           </div>

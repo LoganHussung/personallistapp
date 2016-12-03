@@ -73,6 +73,12 @@ button {
   margin-top: 20px;
   padding: 20px;
 }
+button:active {
+  background-color: #E1E195;
+  border-color: #7F8E52;
+  color: #7F8E52;
+}
+
 input {
   align-items: baseline;
   background-color: #E1E195;
@@ -128,7 +134,7 @@ li {
   color: #E1E195;
   cursor: pointer;
   display: flex;
-  flex-wrap: wrap;
+  float: left;
 }
 
 /* On mouse-over, add a deeper shadow */
@@ -145,6 +151,7 @@ li:active {
 
 .ion-ios-trash-outline {
   color: #E1E195;
+  float: right;
   padding-left: 40px;
 }
 .ion-ios-trash-outline:hover {

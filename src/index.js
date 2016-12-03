@@ -9,7 +9,7 @@ if (!toDos || toDos.length === 0) {
     {text: 'Here are ',
     completed: false
   },
-    {text: 'some off the',
+    {text: 'some simple',
     completed: false
 
   },
