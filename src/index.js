@@ -6,14 +6,14 @@ import './App.css';
 let toDos = JSON.parse(localStorage.getItem('toDos'));
 if (!toDos || toDos.length === 0) {
   toDos = [
-    {text: 'Go to Class',
+    {text: 'Here are ',
     completed: false
   },
-    {text: 'Learn some stuff',
+    {text: 'some off the',
     completed: false
 
   },
-    {text: 'Get a freaking job',
+    {text: 'task examples.',
     completed: false
   }
   ];
